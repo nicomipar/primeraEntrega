@@ -1,5 +1,7 @@
 const {cursos} = require('./datos');
 const fs = require('fs');
+const express = require('express')
+var app = express()
 
 const opciones = {
     idCurso:{
@@ -22,23 +24,28 @@ const argv = require('yargs')
 // console.log(argv.idCurso);
 let curso = cursos.find(curso => curso.id == argv.idCurso)
 
-let texto =     '--------------------------------- ' + '\r\n' +
-'NUEVA INSCRIPCIÓN' + '\r\n' +
-'--------------------------------- ' + '\r\n' +
-'Nombre del Estudiante: ' +argv.nombreEstudiante + '\r\n' +
-'Documento de Identidad: '+argv.docEstudiante + '\r\n' +
-'--------------------------------- ' + '\r\n' +
-'Id del Curso Seleccionado: '+curso.id+ '\r\n' +
-'Nombre del Curso: '+curso.nombre+ '\r\n' +
-'Duración del Curso: '+curso.duracion+ '\r\n' +
-'Valor del Curso: '+curso.valor + '\r\n' +
+let texto =     '<br> ' +
+'NUEVA INSCRIPCIÓN' + '<br>' +
+'--------------------------------- ' + '<br>' +
+'Nombre del Estudiante: ' +argv.nombreEstudiante + '<br>' +
+'Documento de Identidad: '+argv.docEstudiante + '<br>' +
+'--------------------------------- ' + '<br>' +
+'Id del Curso Seleccionado: '+curso.id+ '<br>' +
+'Nombre del Curso: '+curso.nombre+ '<br>' +
+'Duración del Curso: '+curso.duracion+ '<br>' +
+'Valor del Curso: '+curso.valor + '<br>' +
 '--------------------------------- '
-console.log(texto);
+// console.log(texto);
 
-fs.appendFile('inscripciones.txt', '\r\n' + texto, function (err) {
+fs.appendFile('public/inscripciones.html', '\r\n' + texto, function (err) {
     if (err) throw err;
-    console.log('Alumno inscrito satisfactoriamente!');
+    console.log('Alumno Inscrito Satisfactoriamente!');
   });
+
+    app.use(express.static(__dirname + '/public'))
+
+    app.listen(3000)
+    console.log("Server Online");
 
 // let crearArchivo = () =>{
 

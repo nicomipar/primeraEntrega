@@ -1,6 +1,6 @@
 {
-  "name": "primeraentrega",
-  "version": "1.0.1",
+  "name": "entrega2",
+  "version": "1.0.2",
   "description": "primer trabajo",
   "main": "index.js",
   "scripts": {
@@ -10,5 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "yargs": "^13.2.4"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicomipar/primerEntrega.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nicomipar/primerEntrega/issues"
+  },
+  "homepage": "https://github.com/nicomipar/primerEntrega#readme"
 }
